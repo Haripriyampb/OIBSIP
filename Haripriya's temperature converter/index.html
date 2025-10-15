@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haripriya's Temperature Converter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top, #0f172a 20%, #020617 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 25px;
+      border-radius: 18px;
+      width: 340px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+    }
+
+    h1 {
+      font-size: 22px;
+      color: #38bdf8;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    input, select {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+    }
+
+    button {
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+      color: #0f172a;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: linear-gradient(90deg, #0ea5e9, #38bdf8);
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 15px;
+      font-size: 22px;
+      font-weight: 600;
+      color: #facc15;
+      text-shadow: 0 0 10px rgba(250, 204, 21, 0.8);
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #facc15; }
+      to { text-shadow: 0 0 15px #fde047; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🌡 Temperature Converter</h1>
+    <input type="number" id="temp" placeholder="Enter temperature">
+    <select id="from">
+      <option value="C">Celsius (°C)</option>
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
+    <select id="to">
+      <option value="F">Fahrenheit (°F)</option>
+      <option value="C">Celsius (°C)</option>
+      <option value="K">Kelvin (K)</option>
+    </select>
+    <button id="convert" type="button">Convert 🔁</button>
+    <div id="result">—</div>
+    <footer>Designed with 💙 by Hari Priya</footer>
+  </div>
+
+  <script>
+    const convertBtn = document.getElementById("convert");
+    const resultEl = document.getElementById("result");
+
+    convertBtn.addEventListener("click", () => {
+      const temp = parseFloat(document.getElementById("temp").value);
+      const from = document.getElementById("from").value;
+      const to = document.getElementById("to").value;
+
+      if (isNaN(temp)) {
+        resultEl.textContent = "Please enter a number!";
+        return;
+      }
+
+      let converted;
+
+      if (from === "C" && to === "F") converted = (temp * 9/5) + 32;
+      else if (from === "F" && to === "C") converted = (temp - 32) * 5/9;
+      else if (from === "C" && to === "K") converted = temp + 273.15;
+      else if (from === "K" && to === "C") converted = temp - 273.15;
+      else if (from === "F" && to === "K") converted = (temp - 32) * 5/9 + 273.15;
+      else if (from === "K" && to === "F") converted = (temp - 273.15) * 9/5 + 32;
+      else converted = temp;
+
+      resultEl.textContent = converted.toFixed(2) + " °" + to;
+    });
+  </script>
+</body>
+</html>
