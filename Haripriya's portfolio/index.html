@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hari Priya — Portfolio</title>
+  <meta name="description" content="Portfolio of Hari Priya — web developer & designer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand">
+        <a href="index.html" class="logo-img" title="Hari Priya">
+          <img src="me 1.png" alt="Hari Priya logo">
+        </a>
+        <div>
+          <div class="site-name">Hari Priya M. P.</div>
+          <div style="color:var(--muted); font-size:13px">Web Developer & Designer</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="contact.html">Contact</a>
+        <a href="#projects" class="btn">Project</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-card hero" aria-labelledby="intro-title">
+        <div class="hero-left">
+          <h1 id="intro-title" style="margin:0 0 8px 0; font-family:'Inter',sans-serif;">Hi — I'm <span style="color:var(--accent);">Hari Priya</span></h1>
+          <p style="margin:0 0 12px;" class="muted">I build responsive, accessible front-end experiences — clean HTML, modern CSS, and JavaScript. I care about performance, clarity, and delightful micro-interactions.</p>
+
+          <div class="row" style="margin-top:12px;">
+            <a class="btn" href="contact.html">Hire me</a>
+            <a class="btn" href="about.html" style="background:transparent; border:1px solid rgba(3,36,56,0.06); color:inherit">About</a>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted)">Based in India • Open to freelance & full-time</p>
+        </div>
+
+        <aside class="hero-right">
+          <img class="profile-pic" src="me 1.png" alt="Hari Priya">
+        </aside>
+      </section>
+
+      <section id="projects">
+        <h2>My Project</h2>
+
+        <div class="project-card" onclick="window.location.href='project.html'">
+            <a href="https://haripriyampb.github.io/Oasis-Infobyte-Landing-Page/">Visit my page</a>
+          <img src="landing page.png" alt="Oasis Infobyte project screenshot">
+          <div class="inner">
+            <h3>Oasis Infobyte — Landing Page</h3>
+            <p>Responsive landing page created during Oasis Infobyte internship. Click to view the live page or demo files.</p>
+          </div>
+        </div>
+         <div class="project-card" onclick="window.location.href='project.html'">
+            <a href="https://haripriyampb.github.io/Haripriya-s-temperature-converter/">Visit here</a>
+          <img src="Temperature converter.png" alt="Haripriya,s temperature converter">
+          <div class="inner">
+            <h3>Haripriya,s temperature converter</h3>
+            <p>This is a simple and responsive web application that allows users to convert temperature values between Celsius, Fahrenheit, and Kelvin.
+Built using HTML, CSS, and JavaScript, it features a clean user interface and real-time conversion logic for quick and accurate results.</p>
+          </div>
+        </div>
+      </section>
+      <section class="section-card" style="margin-top:18px;">
+        <h3 style="margin:0 0 8px 0">Quick skills</h3>
+        <div class="skills">
+          <span class="chip">HTML</span>
+          <span class="chip">CSS</span>
+          <span class="chip">JavaScript</span>
+        </div>
+      </section>
+
+      <footer style="margin-top:18px" class="section-card center">
+        <small style="color:var(--muted)">&copy; <span class="year"></span> Hari Priya</small>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

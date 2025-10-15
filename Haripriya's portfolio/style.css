@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;500;700&display=swap');
+
+:root{
+  --bg-1: #010f30;
+  --bg-2: #072b4f;
+  --card:#1b4c84;
+  --muted:#d8dee3;
+  --accent:#a2b5bd;
+  --accent-2:#d5dce4;
+  --text:#ffffff;
+  --radius:16px;
+  --maxw:1100px;
+  --shadow: 0 10px 30px rgba(10,30,60,0.08);
+  --glass: rgba(62, 197, 255, 0.138);
+  font-synthesis: none;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(135deg,var(--bg-1),var(--bg-2));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:28px;
+  display:flex;
+  justify-content:center;
+}
+.container{width:100%; max-width:var(--maxw);}
+
+/* Header */
+.header{
+  display:flex; align-items:center; justify-content:space-between; gap:14px; margin-bottom:20px;
+}
+.brand{display:flex; align-items:center; gap:12px;}
+.logo-img{
+  width:52px; height:52px; border-radius:50%; overflow:hidden; box-shadow: 0 6px 18px rgba(2,20,40,0.12);
+  display:inline-block;
+}
+.logo-img img{width:100%; height:100%; object-fit:cover; display:block;}
+.site-name{font-weight:700; font-family:'Inter', sans-serif; font-size:16px;}
+.nav{display:flex; gap:12px; align-items:center;}
+.nav a{color:var(--text); text-decoration:none; padding:8px 10px; border-radius:10px; font-weight:600;}
+.nav a:hover{background:var(--glass)}
+
+.btn{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  color:#032033; border:none; padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:700;
+}
+
+.hero{
+  display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+}
+.hero-card{background:var(--card); border-radius:var(--radius); padding:28px; box-shadow:var(--shadow); width:100%;}
+.hero-left{flex:1; min-width:260px;}
+.hero-right{width:220px; display:flex; justify-content:center; align-items:center;}
+
+.profile-pic{
+  width:160px; height:160px; border-radius:50%; object-fit:cover; border:4px solid rgba(62,197,255,0.18);
+  box-shadow: 0 12px 30px rgba(2,20,40,0.12);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+
+#projects{padding:36px 20px; margin-top:18px; text-align:center; max-width:920px; margin-left:auto; margin-right:auto;}
+#projects h2{color:var(--text); margin-bottom:18px; font-family:'Inter',sans-serif;}
+.project-card{
+  background:var(--card); border-radius:14px; overflow:hidden; width:360px; margin:0 auto;
+  box-shadow:0 8px 24px rgba(2,18,36,0.08); cursor:pointer; transition:transform .28s ease, box-shadow .28s ease;
+}
+.project-card:hover{transform:translateY(-6px); box-shadow:0 12px 34px rgba(2,18,36,0.12);}
+.project-card img{width:100%; height:180px; object-fit:cover; display:block;}
+.project-card .inner{padding:16px;}
+.project-card h3{margin:8px 0 6px; color:var(--text); font-family:'Inter',sans-serif;}
+.project-card p{margin:0; color:var(--muted); font-size:14px;}
+
+.section-card{background:var(--card); border-radius:14px; padding:20px; box-shadow:var(--shadow); margin-top:18px;}
+
+.skills{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
+.chip{background:var(--glass); padding:8px 12px; border-radius:999px; color:var(--text); font-weight:600; font-size:13px;}
+
+label{display:block; font-weight:600; margin-top:10px; color:var(--text)}
+.input, textarea{width:100%; padding:10px; border-radius:10px; border:1px solid rgba(3,36,56,0.06); margin-top:6px; font-size:14px; background:transparent}
+textarea{min-height:120px; resize:vertical}
+
+footer{margin-top:20px; text-align:center; color:var(--muted); font-size:14px}
+
+.row{display:flex; gap:12px; align-items:center}
+.center{display:flex; align-items:center; justify-content:center}
+
+@media (min-width:980px){
+  .hero{align-items:flex-start}
+  .hero-right{width:220px}
+}
+@media (max-width:900px){
+  .hero-right{order:2}
+  .hero-left{order:1}
+  .project-card{width:100%; max-width:420px}
+}

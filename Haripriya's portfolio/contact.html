@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Me</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #043b4e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .contact-form-container {
+      background-color: #126888;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(249, 247, 247, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #fafafa;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 10px;
+      margin-bottom: 5px;
+      color: #edf0f5;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #fafdfd;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 12px;
+      border: none;
+      background-color: #0077b6;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #023e8a;
+    }
+
+    #status {
+      margin-top: 10px;
+      text-align: center;
+      font-weight: bold;
+      color: rgb(255, 254, 240);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-form-container">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+    <p id="status"></p>
+  </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    emailjs.init("fz91bD6Pv7SLIrCX4");
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const serviceID = "service_dezhcv4";   
+      const templateID = "template_gp9gxiu"; 
+
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          status.textContent = "Message sent successfully!";
+          status.style.color = "skyblue";
+          form.reset();
+        }, (err) => {
+          status.textContent = "Failed to send message.";
+          status.style.color = "red";
+          console.error(err);
+        });
+    });
+  </script>
+</body>
+</html>
